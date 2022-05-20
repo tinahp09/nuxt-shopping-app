@@ -323,7 +323,6 @@ big {
 ===============================*/
 .demo-section{
 	width: 100%;
-	background-image: url('../images/demo-bg.jpg');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
