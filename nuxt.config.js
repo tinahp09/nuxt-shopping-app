@@ -20,11 +20,14 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'ant-design-vue/dist/antd.css',
+    '@/assets/css/bootstrap.css',
     '@/assets/css/font-awesome.css',
     '@/assets/css/animate.css',
-    '@/assets/css/responsive.css',
-    '@/assets/css/reset.css',
+    '@/assets/css/slicknav.min.css',
     '@/assets/css/flex-slider.min.css',
+    '@/assets/css/reset.css',
+    '@/assets/css/style.css',
+    '@/assets/css/responsive.css',
 ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
