@@ -298,7 +298,7 @@
     </header>
     <!--/ End Header -->
 
- <slot></slot>
+ <Nuxt/>
 
     <!-- Start Footer Area -->
     <footer class="footer">
