@@ -28,7 +28,7 @@ export default {
 ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/antd-ui','@/plugins/num-devider','@/plugins/changePriceToToman'],
+  plugins: ['@/plugins/antd-ui','@/plugins/num-devider','@/plugins/changePriceToToman','@/plugins/axios'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -46,11 +46,14 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: process.env.site_url,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
