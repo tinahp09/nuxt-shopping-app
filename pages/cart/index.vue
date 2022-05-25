@@ -14,9 +14,6 @@
                   <th class="text-center">UNIT PRICE</th>
                   <th class="text-center">QUANTITY</th>
                   <th class="text-center">TOTAL</th>
-                  <th class="text-center">
-                    <i class="ti-trash remove-icon"></i>
-                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -86,13 +83,13 @@
                     {{item.category}}
                   </td>
                    <td class="td">
-                    {{item.price}}
+                    {{item.price}}$
                   </td>
                   <td class="total-amount" data-title="Total">
                       <span>$220.88</span>
                     </td>
                     <td class="total-amount" data-title="Total">
-                      <span>More</span>
+                      <NuxtLink to="/cart/_id" style="color:blue">More</NuxtLink>
                     </td>
               </tr>
 
