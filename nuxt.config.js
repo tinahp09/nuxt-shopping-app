@@ -48,12 +48,20 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+        // Simple usage
+        '@nuxtjs/dotenv',
+
+        // With options
+        ['@nuxtjs/dotenv', { /* module options */ }]
   ],
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: process.env.site_url,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
