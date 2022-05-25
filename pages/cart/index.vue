@@ -78,10 +78,22 @@
 
 
 
-              <tr v-for="(index,item) in content" :key="index">
-                  <td class="price">
-                      {{item.price}}
+              <tr v-for="item in content" :key="item.id">
+                  <td class="td">
+                      <img src="https://via.placeholder.com/100x100" alt="#" />
                   </td>
+                  <td class="td">
+                    {{item.category}}
+                  </td>
+                   <td class="td">
+                    {{item.price}}
+                  </td>
+                  <td class="total-amount" data-title="Total">
+                      <span>$220.88</span>
+                    </td>
+                    <td class="total-amount" data-title="Total">
+                      <span>More</span>
+                    </td>
               </tr>
 
               </tbody>
@@ -104,7 +116,7 @@
                     </div>
                     <div class="checkbox">
                       <label class="checkbox-inline" for="2"
-                        ><input name="news" id="2" type="checkbox" /> Shipping
+                        ><input name="news" type="checkbox" /> Shipping
                         (+10$)</label
                       >
                     </div>
@@ -138,11 +150,28 @@
 <script>
 export default {
   name: 'Cart',
-  layout: 'Dashboard',
   async asyncData(context) {
     const data = await context.store.dispatch('products/getAllProducts')
     console.log(data)
     return { content: data }
   },
+  data() {
+    return{
+      quantity: 1
+    }
+  },
+   methods:{
+     decrease() {
+       console.log('hi')
+     },
+     increase() {
+       return this.quantity++
+     }
+   }
 }
 </script>
+<style scoped>
+td {
+  text-align: center;
+}
+</style>

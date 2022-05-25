@@ -1,5 +1,9 @@
 <template>
+
+
+
   <body class="js">
+
     <!-- Preloader -->
     <Loader v-if="load"/>
     <!-- End Preloader -->
