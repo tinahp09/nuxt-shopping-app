@@ -3,9 +3,10 @@ export const actions = {
         return this.$axios.get('products').then(res => {
             return res.data
         },
-        data => {
-            return data
-        }
+            data => {
+                return data
+            }
         )
-    }
+    },
+
 }
