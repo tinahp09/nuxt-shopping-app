@@ -12,7 +12,7 @@
 <script>
 export default {
   async asyncData(context) {
-    const data = await context.store.dispatch('products/getAllProducts')
+    const data = await context.store.dispatch(`products/getSingleProducts`)
     console.log(data)
     return { content: data }
   },

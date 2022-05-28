@@ -8,5 +8,13 @@ export const actions = {
             }
         )
     },
-
+    // getSingleProduct() {
+    //     return this.$axios.get(`products/${id}`).then(res => {
+    //         return res.data
+    //     },
+    //         data => {
+    //             return data
+    //         }
+    //     )
+    // }
 }

@@ -17,8 +17,7 @@
                 </tr>
               </thead>
               <tbody>
-              
-                  <!-- <tr v-for="item in content" :key="item.id">
+                <!-- <tr v-for="item in content" :key="item.id">
                     <td class="image" data-title="No">
                       <img src="https://via.placeholder.com/100x100" alt="#" />
                     </td>
@@ -71,28 +70,21 @@
                     </td>
                   </tr> -->
 
-
-
-
-
-              <tr v-for="item in content" :key="item.id">
+                <tr v-for="item in content" :key="item.id">
                   <td class="td">
-                      <img src="https://via.placeholder.com/100x100" alt="#" />
+                    <img :src="`${item.image}`" alt="" />
                   </td>
                   <td class="td">
-                    {{item.category}}
+                    {{ item.category }}
                   </td>
-                   <td class="td">
-                    {{item.price}}$
+                  <td class="td">{{ item.price }}$</td>
+                  <td class="total-amount" data-title="Total">
+                    <span>$220.88</span>
                   </td>
                   <td class="total-amount" data-title="Total">
-                      <span>$220.88</span>
-                    </td>
-                    <td class="total-amount" data-title="Total">
-                      <NuxtLink to="/cart/_id" style="color:blue">More</NuxtLink>
-                    </td>
-              </tr>
-
+                    <NuxtLink to="/cart/_id" style="color: blue">More</NuxtLink>
+                  </td>
+                </tr>
               </tbody>
             </table>
             <!--/ End Shopping Summery -->
@@ -153,8 +145,7 @@ export default {
     return { content: data }
   },
   data() {
-    return{
-      quantity: 1
+    return {
     }
   },
    methods:{

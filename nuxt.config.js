@@ -52,7 +52,26 @@ export default {
         '@nuxtjs/dotenv',
 
         // With options
-        ['@nuxtjs/dotenv', { /* module options */ }]
+        ['@nuxtjs/dotenv', { /* module options */ }],
+        [
+          '@nuxtjs/i18n',
+          {
+            locales: ['en', 'fa'],
+            defaultLocale: 'en',
+            vueI18n: {
+              fallbackLocale: 'en',
+              messages: {
+                en: {
+                  products: 'محصولات ',
+                  best_selling: 'پرفروش'
+                },
+                es: {
+                  greeting: '¡Hola mundo!'
+                }
+              }
+            }
+          }
+        ]
   ],
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000'
