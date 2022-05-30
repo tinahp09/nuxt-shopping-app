@@ -28,10 +28,12 @@ export default {
     '@/assets/css/reset.css',
     '@/assets/css/style.css',
     '@/assets/css/responsive.css',
-],
+    'bootstrap/dist/css/bootstrap.css',
+    'bootstrap-vue/dist/bootstrap-vue.css'
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/antd-ui','@/plugins/num-devider','@/plugins/changePriceToToman'],
+  plugins: ['@/plugins/antd-ui', '@/plugins/num-devider', '@/plugins/changePriceToToman', '~plugins/bootstrap.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -48,30 +50,30 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-        // Simple usage
-        '@nuxtjs/dotenv',
+    // Simple usage
+    '@nuxtjs/dotenv',
 
-        // With options
-        ['@nuxtjs/dotenv', { /* module options */ }],
-        [
-          '@nuxtjs/i18n',
-          {
-            locales: ['en', 'fa'],
-            defaultLocale: 'en',
-            vueI18n: {
-              fallbackLocale: 'en',
-              messages: {
-                en: {
-                  products: 'محصولات ',
-                  best_selling: 'پرفروش'
-                },
-                es: {
-                  greeting: '¡Hola mundo!'
-                }
-              }
+    // With options
+    ['@nuxtjs/dotenv', { /* module options */ }],
+    [
+      '@nuxtjs/i18n',
+      {
+        locales: ['en', 'fa'],
+        defaultLocale: 'en',
+        vueI18n: {
+          fallbackLocale: 'en',
+          messages: {
+            en: {
+              products: 'محصولات ',
+              best_selling: 'پرفروش'
+            },
+            es: {
+              greeting: '¡Hola mundo!'
             }
           }
-        ]
+        }
+      }
+    ]
   ],
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000'
