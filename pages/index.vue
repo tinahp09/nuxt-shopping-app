@@ -24,7 +24,7 @@
 <script>
 export default {
   name: 'IndexPage',
-  // layout: 'Dashboard',
+   layout: 'Dashboard',
   async asyncData(context) {
     const data = await context.store.dispatch('products/getAllProducts')
     console.log(data)

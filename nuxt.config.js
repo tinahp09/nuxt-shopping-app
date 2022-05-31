@@ -20,7 +20,6 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'ant-design-vue/dist/antd.css',
-    '@/assets/css/bootstrap.css',
     '@/assets/css/font-awesome.css',
     '@/assets/css/animate.css',
     '@/assets/css/slicknav.min.css',
@@ -28,12 +27,10 @@ export default {
     '@/assets/css/reset.css',
     '@/assets/css/style.css',
     '@/assets/css/responsive.css',
-    'bootstrap/dist/css/bootstrap.css',
-    'bootstrap-vue/dist/bootstrap-vue.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/antd-ui', '@/plugins/num-devider', '@/plugins/changePriceToToman', '~plugins/bootstrap.js'],
+  plugins: ['@/plugins/antd-ui', '@/plugins/num-devider', '@/plugins/changePriceToToman'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -52,7 +49,7 @@ export default {
     '@nuxtjs/axios',
     // Simple usage
     '@nuxtjs/dotenv',
-
+    'bootstrap-vue/nuxt',
     // With options
     ['@nuxtjs/dotenv', { /* module options */ }],
     [

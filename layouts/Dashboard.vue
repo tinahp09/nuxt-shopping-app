@@ -1,8 +1,5 @@
 <template>
-  <body class="js">
-    <!-- Preloader -->
-    <Loader v-if="load" />
-    <!-- End Preloader -->
+  <div class="js">
 
     <!-- Header -->
     <header class="header shop">
@@ -103,9 +100,7 @@
       <!--/ End Header Inner -->
     </header>
     <!--/ End Header -->
-
     <Nuxt />
-
     <!-- Start Footer Area -->
     <footer class="footer">
       <!-- Footer Top -->
@@ -222,20 +217,11 @@
       </div>
     </footer>
     <!-- /End Footer Area -->
-  </body>
+  </div>
 </template>
 
 <script>
-import Loader from '../components/Loader.vue'
 export default {
   name: 'Dashboard',
-  components: {
-    Loader,
-  },
-  data() {
-    return {
-      load: false,
-    }
-  },
 }
 </script>
