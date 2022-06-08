@@ -1,165 +1,99 @@
 <template>
-  <div>
-    <!-- Shopping Cart -->
-    <div class="shopping-cart section">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <!-- Shopping Summery -->
-            <table class="table shopping-summery">
-              <thead>
-                <tr class="main-hading">
-                  <th>PRODUCT</th>
-                  <th>NAME</th>
-                  <th class="text-center">UNIT PRICE</th>
-                  <th class="text-center">QUANTITY</th>
-                  <th class="text-center">TOTAL</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- <tr v-for="item in content" :key="item.id">
-                    <td class="image" data-title="No">
-                      <img src="https://via.placeholder.com/100x100" alt="#" />
-                    </td>
-                    <td class="product-des" data-title="Description">
-                      {{item.price}}
-                    </td>
-                    <td class="price" data-title="Price">
-                      <span>$110.00 </span>
-                    </td>
-                    <td class="qty" data-title="Qty">
-                    
-                      <div class="input-group">
-                        <div class="button minus">
-                          <button
-                            type="button"
-                            class="btn btn-primary btn-number"
-                            disabled="disabled"
-                            data-type="minus"
-                            data-field="quant[1]"
-                          >
-                            <i class="ti-minus"></i>
-                          </button>
-                        </div>
-                        <input
-                          type="text"
-                          name="quant[1]"
-                          class="input-number"
-                          data-min="1"
-                          data-max="100"
-                          value="1"
-                        />
-                        <div class="button plus">
-                          <button
-                            type="button"
-                            class="btn btn-primary btn-number"
-                            data-type="plus"
-                            data-field="quant[1]"
-                          >
-                            <i class="ti-plus"></i>
-                          </button>
-                        </div>
-                      </div>
-                     
-                    </td>
-                    <td class="total-amount" data-title="Total">
-                      <span>$220.88</span>
-                    </td>
-                    <td class="action" data-title="Remove">
-                      <a href="#"><i class="ti-trash remove-icon"></i></a>
-                    </td>
-                  </tr> -->
-
-                <tr v-for="item in content" :key="item.id">
-                  <td class="td">
-                    <img :src="`${item.image}`" alt="" />
-                  </td>
-                  <td class="td">
-                    {{ item.category }}
-                  </td>
-                  <td class="td">{{ item.price }}$</td>
-                  <td class="total-amount" data-title="Total">
-                    <span>$220.88</span>
-                  </td>
-                  <td class="total-amount" data-title="Total">
-                    <NuxtLink to="/products/_id" style="color: blue">More</NuxtLink>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <!--/ End Shopping Summery -->
+  <!-- Start Product Area -->
+  <div class="product-area section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-title">
+            <h2>Products</h2>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <!-- Total Amount -->
-            <div class="total-amount">
-              <div class="row">
-                <div class="col-lg-8 col-md-5 col-12">
-                  <div class="left">
-                    <div class="coupon">
-                      <form action="#" target="_blank">
-                        <input name="Coupon" placeholder="Enter Your Coupon" />
-                        <button class="btn">Apply</button>
-                      </form>
-                    </div>
-                    <div class="checkbox">
-                      <label class="checkbox-inline" for="2"
-                        ><input name="news" type="checkbox" /> Shipping
-                        (+10$)</label
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-7 col-12">
-                  <div class="right">
-                    <ul>
-                      <li>Cart Subtotal<span>$330.00</span></li>
-                      <li>Shipping<span>Free</span></li>
-                      <li>You Save<span>$20.00</span></li>
-                      <li class="last">You Pay<span>$310.00</span></li>
-                    </ul>
-                    <div class="button5">
-                      <a href="#" class="btn">Checkout</a>
-                      <a href="#" class="btn">Continue shopping</a>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="product-info">
+            <div id="myTabContent" class="tab-content">
+              <!-- Start Single Tab -->
+              <div id="man" class="tab-pane fade show active" role="tabpanel">
+                <div class="tab-single">
+                  <div class="row">
+                    <div
+                      v-for="item in content"
+                      :key="item.id"
+                      class="col-xl-3 col-lg-4 col-md-4 col-12"
+					  style="box-shadow: rgba(67 71 85 / 27%) 0 0 4px 0, rgba(90 125 188 / 5%) 0 4px 16px 0;"
+                    >
+                      <div class="single-product">
+                        <div class="product-img">
+                          <a href="product-details.html">
+                            <img class="default-img" :src="`${item.image}`" />
+                            <img class="hover-img" :src="`${item.image}`" />
+                          </a>
+                          <div class="button-head">
+                            <div class="product-action">
+                              <a
+                                data-toggle="modal"
+                                data-target="#exampleModal"
+                                title="Quick View"
+                                href="#"
+                                ><i class="ti-eye"></i
+                                ><span>Quick Shop</span></a
+                              >
+                              <a title="Wishlist" href="#"
+                                ><i class="ti-heart"></i
+                                ><span>Add to Wishlist</span></a
+                              >
+                              <a title="Compare" href="#"
+                                ><i class="ti-bar-chart-alt"></i
+                                ><span>Add to Compare</span></a
+                              >
+                            </div>
+                            <div class="product-action-2">
+                              <a title="Add to cart" href="#">Add to cart</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-content text-center font-weight-bold">
+                          
+                            <span style="font-size:16px">{{item.category}}</span>
+                          
+                          <div class="product-price">
+                            <span>{{item.price}}$</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <!--/ End Single Tab -->
             </div>
-            <!--/ End Total Amount -->
           </div>
         </div>
       </div>
     </div>
-    <!--/ End Shopping Cart -->
   </div>
+  <!-- End Product Area -->
 </template>
 
 <script>
 export default {
   name: 'Cart',
+  layout: 'Dashboard',
   async asyncData(context) {
     const data = await context.store.dispatch('products/getAllProducts')
     console.log(data)
     return { content: data }
   },
   data() {
-    return {
-    }
+    return {}
   },
-   methods:{
-     decrease() {
-       console.log('hi')
-     },
-     increase() {
-       return this.quantity++
-     }
-   }
+  methods: {},
 }
 </script>
 <style scoped>
-td {
-  text-align: center;
+.product-img img {
+  height: 250px !important;
+  width: 300px !important;
 }
 </style>

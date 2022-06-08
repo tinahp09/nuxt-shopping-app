@@ -9,7 +9,7 @@ export const actions = {
         )
     },
     getSingleProducts(item) {
-        return this.$axios.get(`products/${item.id}`).then(res => {
+        return this.$axios.get('products/'+ item.id).then(res => {
             return res.data
         },
             data => {
