@@ -3,7 +3,7 @@
     <h2 class="text-center mt-4" style="color: #f7941d">
       Best Selling Products
     </h2>
-    <div class="mx-auto" style="width: 50%; height: auto">
+    <!-- <div class="mx-auto" style="width: 50%; height: auto">
       <b-carousel
         id="carousel"
         v-model="slide"
@@ -19,7 +19,15 @@
           ></b-carousel-slide>
         </div>
       </b-carousel>
-    </div>
+    </div> -->
+
+    <no-ssr>
+      <carousel>
+        <div v-for="item in content" :key="item.id">
+          <img :src="`${item.image}`" />
+        </div>
+      </carousel>
+    </no-ssr>
   </div>
 </template>
 
@@ -49,7 +57,8 @@ export default {
 }
 </script>
 <style scoped>
-#carousel {
-  margin: 0 auto;
+img {
+  width: 300px;
+  height: 350px;
 }
 </style>
