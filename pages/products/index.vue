@@ -49,7 +49,7 @@
                               >
                             </div>
                             <div class="product-action-2">
-                              <a title="Add to cart" href="#">Add to cart</a>
+                              <NuxtLink to="/singleProducts">More</NuxtLink>
                             </div>
                           </div>
                         </div>
@@ -58,7 +58,7 @@
                             <span style="font-size:16px">{{item.category}}</span>
                           
                           <div class="product-price">
-                            <span>{{item.price}}$</span>
+                            <p class="price with-discount">{{item.price}}$</p>
                           </div>
                         </div>
                       </div>
@@ -95,5 +95,6 @@ export default {
 .product-img img {
   height: 250px !important;
   width: 300px !important;
+  padding: 20px;
 }
 </style>

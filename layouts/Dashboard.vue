@@ -11,8 +11,8 @@
 							<!-- Top Left -->
 							<div class="top-left">
 								<ul class="list-main">
-									<li><i class="ti-headphone-alt"></i> +060 (800) 801-582</li>
-									<li><i class="ti-email"></i> support@shophub.com</li>
+									<li><i class="fa fa-phone"></i> +060 (800) 801-582</li>
+									<li><i class="fa fa-envelope"></i> support@shophub.com</li>
 								</ul>
 							</div>
 							<!--/ End Top Left -->
@@ -21,10 +21,8 @@
 							<!-- Top Right -->
 							<div class="right-content">
 								<ul class="list-main">
-									<li><i class="ti-location-pin"></i> Store location</li>
-									<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
-									<li><i class="ti-user"></i> <a href="#">My account</a></li>
-									<li><i class="ti-power-off"></i><a href="login.html#">Login</a></li>
+									<li><i class="fa fa-user"></i>My account</li>
+									<NuxtLink to="/login"><li><i class="fa fa-power-off"></i>Login</li></NuxtLink>
 								</ul>
 							</div>
 							<!-- End Top Right -->
@@ -60,15 +58,9 @@
 						<div class="col-lg-8 col-md-7 col-12">
 							<div class="search-bar-top">
 								<div class="search-bar">
-									<select>
-										<option selected="selected">All Category</option>
-										<option>watch</option>
-										<option>mobile</option>
-										<option>kid’s item</option>
-									</select>
 									<form>
 										<input name="search" placeholder="Search Products Here....." type="search">
-										<button class="btnn"><i class="ti-search"></i></button>
+										<button class="btnn"><i class="fa fa-search"></i></button>
 									</form>
 								</div>
 							</div>
@@ -81,6 +73,7 @@
 				<div class="container">
 					<div class="cat-nav-head">
 						<div class="row">
+              
 							<div class="col-12">
 								<div class="menu-area">
 									<!-- Main Menu -->
@@ -88,9 +81,9 @@
 										<div class="navbar-collapse">	
 											<div class="nav-inner">	
 												<ul class="nav main-menu menu navbar-nav">
-													<li><NuxtLink to="/">Home</NuxtLink></li>
-													<li><NuxtLink to="/products">Products</NuxtLink></li>
-                          <li><NuxtLink to="/contacts">Contact us</NuxtLink></li>
+													<li><NuxtLink to="/" class="mt-3">Home</NuxtLink></li>
+													<li><NuxtLink to="/products" class="mt-3">Products</NuxtLink><span class="new">New</span></li>
+                          <li><NuxtLink to="/contacts" class="mt-3">Contact us</NuxtLink></li>
 												</ul>
 											</div>
 										</div>
@@ -230,3 +223,4 @@ export default {
   name: 'Dashboard',
 }
 </script>
+

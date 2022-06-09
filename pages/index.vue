@@ -1,25 +1,8 @@
 <template>
   <div class="container">
-    <h2 class="text-center mt-4" style="color: #f7941d">
-      Best Selling Products
-    </h2>
-    <!-- <div class="mx-auto" style="width: 50%; height: auto">
-      <b-carousel
-        id="carousel"
-        v-model="slide"
-        :interval="35000"
-        controls
-        indicators
-        @sliding-start="onSlideStart"
-        @sliding-end="onSlideEnd"
-      >
-        <div v-for="item in content" :key="item.id">
-          <b-carousel-slide
-            :img-src="`${item.image}`"
-          ></b-carousel-slide>
-        </div>
-      </b-carousel>
-    </div> -->
+    <div class="section-title">
+      <h2 class="my-5">Best Selling</h2>
+    </div>
 
     <no-ssr>
       <carousel>
@@ -36,8 +19,8 @@ export default {
   name: 'IndexPage',
   layout: 'Dashboard',
   async asyncData(context) {
-    const data = await context.store.dispatch('products/getAllProducts')
-    console.log(data)
+    const data = await context.store.dispatch('products/bestSelling')
+    // console.log(data)
     return { content: data }
   },
   data() {
@@ -60,5 +43,6 @@ export default {
 img {
   width: 300px;
   height: 350px;
+  padding: 20px;
 }
 </style>
