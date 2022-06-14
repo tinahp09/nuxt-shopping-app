@@ -21,7 +21,10 @@
                       v-for="item in content"
                       :key="item.id"
                       class="col-xl-3 col-lg-4 col-md-4 col-12"
-					  style="box-shadow: rgba(67 71 85 / 27%) 0 0 4px 0, rgba(90 125 188 / 5%) 0 4px 16px 0;"
+                      style="
+                        box-shadow: rgba(67 71 85 / 27%) 0 0 4px 0,
+                          rgba(90 125 188 / 5%) 0 4px 16px 0;
+                      "
                     >
                       <div class="single-product">
                         <div class="product-img">
@@ -49,16 +52,19 @@
                               >
                             </div>
                             <div class="product-action-2">
-                              <NuxtLink to="/singleProducts">More</NuxtLink>
+                              <NuxtLink :to="`/products/${item.id}`">More</NuxtLink>
                             </div>
                           </div>
                         </div>
-                        <div class="product-content text-center font-weight-bold">
-                          
-                            <span style="font-size:16px">{{item.category}}</span>
-                          
+                        <div
+                          class="product-content text-center font-weight-bold"
+                        >
+                          <span style="font-size: 16px">{{
+                            item.category
+                          }}</span>
+
                           <div class="product-price">
-                            <p class="price with-discount">{{item.price}}$</p>
+                            <p class="price with-discount">{{ item.price }}$</p>
                           </div>
                         </div>
                       </div>

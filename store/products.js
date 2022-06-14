@@ -17,9 +17,19 @@ export const actions = {
         }
         )
     },
-    getSingleProduct(data) {
-        // console.log(data.id)
-        return this.$axios.get(`products/1`).then(res => {
+    getSingleProduct(context, payload) {
+        console.log('Hi')
+        console.log(payload.id)
+        return this.$axios.get(`products/${payload.id}`).then(res => {
+            return res.data
+        },
+        data => {
+            return data
+        }
+        )
+    },
+    getRecentProduct() {
+        return this.$axios.get('products?limit=3').then (res => {
             return res.data
         },
         data => {
