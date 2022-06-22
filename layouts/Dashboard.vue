@@ -65,6 +65,49 @@
 								</div>
 							</div>
 						</div>
+            <div class="col-lg-2 col-md-3 col-12">
+						<div class="right-bar">
+							<!-- Search Form -->
+							<div class="sinlge-bar">
+								<a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+							</div>
+							<div class="sinlge-bar">
+								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+							</div>
+							<div class="sinlge-bar shopping">
+								<a href="#" class="single-icon"><i class="fa fa-shopping-bag"></i> <span class="total-count">2</span></a>
+								<!-- Shopping Item -->
+								<div class="shopping-item">
+									<div class="dropdown-cart-header">
+										<span>2 Items</span>
+										<a href="#">View Cart</a>
+									</div>
+									<ul class="shopping-list">
+										<li>
+											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+											<h4><a href="#">Woman Ring</a></h4>
+											<p class="quantity">1x - <span class="amount">$99.00</span></p>
+										</li>
+										<li>
+											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
+											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+											<h4><a href="#">Woman Necklace</a></h4>
+											<p class="quantity">1x - <span class="amount">$35.00</span></p>
+										</li>
+									</ul>
+									<div class="bottom">
+										<div class="total">
+											<span>Total</span>
+											<span class="total-amount">$134.00</span>
+										</div>
+										<a href="checkout.html" class="btn animate">Checkout</a>
+									</div>
+								</div>
+								<!--/ End Shopping Item -->
+							</div>
+						</div>
+					</div>
 					</div>
 				</div>
 			</div>
@@ -73,17 +116,22 @@
 				<div class="container">
 					<div class="cat-nav-head">
 						<div class="row">
-              
-							<div class="col-12">
+              <div class="col-lg-3">
+							<div class="all-category">
+								<h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>	
+							</div>
+						</div>
+							<div class="col-lg-9 col-12">
 								<div class="menu-area">
 									<!-- Main Menu -->
 									<nav class="navbar navbar-expand-lg">
 										<div class="navbar-collapse">	
 											<div class="nav-inner">	
 												<ul class="nav main-menu menu navbar-nav">
-													<li><NuxtLink to="/" class="mt-3">Home</NuxtLink></li>
-													<li><NuxtLink to="/products" class="mt-3">Products</NuxtLink><span class="new">New</span></li>
-                          <li><NuxtLink to="/contacts" class="mt-3">Contact us</NuxtLink></li>
+													<li><NuxtLink to="/">Home</NuxtLink></li>
+													<li><NuxtLink to="/products">Products</NuxtLink><span class="new">New</span></li>
+                          <li><NuxtLink to="/contacts">Contact us</NuxtLink></li>
+                          <li><NuxtLink to="/products/userShopCart">Shop cart</NuxtLink></li>
 												</ul>
 											</div>
 										</div>

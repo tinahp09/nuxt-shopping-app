@@ -19,9 +19,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in content" :key="item.id">
+              <tr v-for="item in products" :key="item.id">
                 <td class="image" data-title="No">
-                  <img :src="`${item.image}`" alt="#" />
+                  <img src="https://via.placeholder.com/100x100" alt="#" />
                 </td>
                 <td class="product-des" data-title="Description">
                   <p class="product-name"><a href="#">Women Dress</a></p>
@@ -43,13 +43,9 @@
                       </button>
                     </div>
                     <input
-                      v-model="counter"
+                      v-model="item.counter"
                       type="text"
-                      name="quant[1]"
                       class="input-number"
-                      data-min="1"
-                      data-max="100"
-                      value="1"
                     />
                     <div class="button plus">
                       <button
@@ -121,21 +117,13 @@
 </template>
 <script>
 export default {
-  layout:'Dashboard',
+  layout: 'Dashboard',
+
   data() {
     return {
-      counter: 0,
+      shoppingCart: [],
     }
   },
-  methods: {
-    increment() {
-      return this.counter++
-    },
-    decrement() {
-      if (this.counter >= 1) {
-        return this.counter--
-      }
-    },
-  },
+  methods: {},
 }
 </script>

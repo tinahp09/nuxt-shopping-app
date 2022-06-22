@@ -31,7 +31,7 @@
                       </h5>
                       <blockquote>
                         <i class="fa fa-quote-left"></i> 
-                        <h6>This products price is <span style="color: #f7941d; font-size: 18px">{{content.price}}</span> dollars</h6>
+                        <h6>This products price is <span style="color: #f7941d; font-size: 28px">{{content.price}}$</span> dollars</h6>
                       </blockquote>
                     </div>
                   </div>

@@ -52,7 +52,14 @@
                               >
                             </div>
                             <div class="product-action-2">
-                              <NuxtLink :to="`/products/${item.id}`">More</NuxtLink>
+                              <NuxtLink :to="`/products/${item.id}`"
+                                >More |
+                              </NuxtLink>
+                              <NuxtLink
+                                :to="`/products/userShopCart`"
+                                @click="addToCart"
+                                >Add to cart</NuxtLink
+                              >
                             </div>
                           </div>
                         </div>
@@ -88,13 +95,20 @@ export default {
   layout: 'Dashboard',
   async asyncData(context) {
     const data = await context.store.dispatch('products/getAllProducts')
-    console.log(data)
+    // console.log(data)
+    
     return { content: data }
   },
   data() {
-    return {}
+    return {
+      cart: [],
+    }
   },
-  methods: {},
+  methods: {
+    addToCart(productId) {
+      console.log(productId)
+    },
+  },
 }
 </script>
 <style scoped>
