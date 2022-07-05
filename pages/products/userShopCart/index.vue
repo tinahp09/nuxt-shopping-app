@@ -19,7 +19,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in products" :key="item.id">
+              <tr>
                 <td class="image" data-title="No">
                   <img src="https://via.placeholder.com/100x100" alt="#" />
                 </td>
@@ -37,23 +37,29 @@
                       <button
                         type="button"
                         class="btn btn-primary btn-number"
-                        @click="decrement"
+                        disabled="disabled"
+                        data-type="minus"
+                        data-field="quant[1]"
                       >
-                        <i class="fa fa-minus"></i>
+                        <i class="ti-minus"></i>
                       </button>
                     </div>
                     <input
-                      v-model="item.counter"
                       type="text"
+                      name="quant[1]"
                       class="input-number"
+                      data-min="1"
+                      data-max="100"
+                      value="1"
                     />
                     <div class="button plus">
                       <button
                         type="button"
                         class="btn btn-primary btn-number"
-                        @click="increment"
+                        data-type="plus"
+                        data-field="quant[1]"
                       >
-                        <i class="fa fa-plus"></i>
+                        <i class="ti-plus"></i>
                       </button>
                     </div>
                   </div>
@@ -115,15 +121,13 @@
   </div>
   <!--/ End Shopping Cart -->
 </template>
+
 <script>
 export default {
-  layout: 'Dashboard',
-
-  data() {
-    return {
-      shoppingCart: [],
-    }
+  async asyncData(context) {
+    const data = await context.store.dispatch('products/getAllCarts')
+    console.log(data)
+    return { content: data }
   },
-  methods: {},
 }
 </script>

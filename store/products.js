@@ -1,3 +1,21 @@
+export const state = () => ({
+    productsList: [
+        {
+            id: 1,
+            productId: 1,
+            productTitle: 'product',
+            price: 10000,
+            count:1,
+        }
+    ]
+})
+
+export const mutations = {
+    setProducts(state, products) {
+        state.productsList = products;
+    }
+}
+
 export const actions = {
     getAllProducts() {
         return this.$axios.get('products').then(res => {
@@ -37,14 +55,36 @@ export const actions = {
             }
         )
     },
-    addProductToCart(context, data) {
-        return this.$axios.get('https://fakestoreapi.com/carts', {
-            params:{
-                productId: data.id,
-                count: data.quantity
+    async getAllCarts(context) {
+        const product = await this.$axios.get('carts')
+        const products = product.data[0].products
+        console.log(products)
+        if (process.client) {
+            localStorage.setItem('product', JSON.stringify(products))
+        }
+        const arrayProduct = []
+        products.forEach(item => {
+            console.log(item)
+            arrayProduct[item.productId] = item.quantity
+        });
+        console.log('arayyyyys')
+        console.log(arrayProduct)
+        context.commit('setProducts', arrayProduct)
+    },
+    addToCart(context, payload) {
+
+        return this.$axios.post('carts', {
+            userId: 5,
+            date: 2020,
+            products: [{ productId: 5, quantity: 1 }, { productId: 1, quantity: 5 }]
+        }).then(res => {
+            return res.data;
+        },
+            data => {
+                return data;
             }
-        }).then(res =>{
-            console.log(res)
-        })
+        )
+
+    
     }
 }
