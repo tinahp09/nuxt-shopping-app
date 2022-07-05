@@ -1,6 +1,7 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
+  target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -71,7 +72,11 @@ export default {
           }
         }
       }
-    ]
+    ],
+    // Simple usage
+    'cookie-universal-nuxt',
+    // With options
+    ['cookie-universal-nuxt', { alias: 'cookiz' }, { parseJSON: false }],
   ],
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000'

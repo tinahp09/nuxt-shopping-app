@@ -55,7 +55,7 @@
                               <NuxtLink :to="`/products/${item.id}`"
                                 >More |
                               </NuxtLink>
-                              <NuxtLink :to="`/products/userShopCart`" @click="addProduct">Add to cart</NuxtLink>
+                              <a @click.prevent="addProduct(item.id)">Add to cart</a>
                             </div>
                           </div>
                         </div>
@@ -101,12 +101,26 @@ export default {
   computed: {
     // ...mapState([ 'productsList' ]),
   },
-  methods:{
-    addProduct() {
-      // console.log('add')
-      this.$store.dispatch('addToCart')
-    }
-  }
+  methods: {
+    async addProduct(productId) {
+      const data = {
+        productid: productId,
+        quantity: 1
+      }
+      localStorage.setItem('test', 'we want to test api')
+      const testKey = localStorage.getItem('test')
+      console.log(testKey)
+      const cartInfo = this.$cookies.get('cartInfo')
+      console.log('cart info')
+      console.log(cartInfo)
+      const updateCartInfo = cartInfo.push(data)
+      this.$cookies.set('newInfo', updateCartInfo)
+      const newInfo = this.$cookies.get('newInfo')
+      console.log('new info')
+      console.log(newInfo)
+     await this.$store.dispatch('products/addToCart', updateCartInfo)
+    },
+  },
 }
 </script>
 <style scoped>
