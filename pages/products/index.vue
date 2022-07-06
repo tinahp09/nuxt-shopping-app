@@ -91,9 +91,10 @@ export default {
   layout: 'Dashboard',
   async asyncData(context) {
     const data = await context.store.dispatch('products/getAllProducts')
+    const cart = await context.store.dispatch('products/getAllCarts')
     // console.log(data)
 
-    return { content: data }
+    return { content: data , carts:cart }
   },
   data() {
     return {}
@@ -107,14 +108,15 @@ export default {
         productid: productId,
         quantity: 1
       }
-      localStorage.setItem('test', 'we want to test api')
-      const testKey = localStorage.getItem('test')
-      console.log(testKey)
+      // localStorage.setItem('test', 'we want to test api')
+      // const testKey = localStorage.getItem('test')
+      // console.log(testKey)
       const cartInfo = this.$cookies.get('cartInfo')
       console.log('cart info')
       console.log(cartInfo)
       const updateCartInfo = cartInfo.push(data)
-      this.$cookies.set('newInfo', updateCartInfo)
+      console.log(updateCartInfo)
+      this.$cookies.set('newInfo', JSON.stringify(updateCartInfo))
       const newInfo = this.$cookies.get('newInfo')
       console.log('new info')
       console.log(newInfo)
