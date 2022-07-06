@@ -102,7 +102,7 @@ export default {
     // ...mapState([ 'productsList' ]),
   },
   methods: {
-    async addProduct(productId) {
+     async addProduct(productId) {
       const data = {
         productid: productId,
         quantity: 1
@@ -118,7 +118,7 @@ export default {
       const newInfo = this.$cookies.get('newInfo')
       console.log('new info')
       console.log(newInfo)
-     await this.$store.dispatch('products/addToCart', updateCartInfo)
+      await this.$store.dispatch('products/addToCart', updateCartInfo)
     },
   },
 }
