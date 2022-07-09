@@ -1,13 +1,8 @@
 export const state = () => ({
     productsList: [
-        {
-            id: 1,
-            productId: 1,
-            productTitle: 'product',
-            price: 10000,
-            count:1,
-        }
-    ]
+        
+    ],
+    cartProducts:[]
 })
 
 export const mutations = {
@@ -57,12 +52,14 @@ export const actions = {
     },
     async getAllCarts(context) {
         const product = await this.$axios.get('carts')
+        this.$cookies.set('product', product)
+        console.log('shop ', product)
         const products = product.data[0].products
         console.log(products)
         // if (process.client) {
         //     localStorage.setItem('product', JSON.stringify(products))
         // }
-        this.$cookies.set('cartInfo', JSON.stringify(products))
+        this.$cookies.set('cartInfo', products)
         const arrayProduct = []
         products.forEach(item => {
             console.log(item)
@@ -72,20 +69,29 @@ export const actions = {
         console.log(arrayProduct)
         context.commit('setProducts', arrayProduct)
     },
-    addToCart(context, payload) {
-
-        return this.$axios.post('carts', {
+    async addToCart(context, payload) {
+        console.log('payload: ' , payload)
+       return await this.$axios.post('carts', {
             userId: 5,
             date: 2020,
             products: [payload]
         }).then(res => {
-            return res.data;
+            return res;
         },
             data => {
                 return data;
             }
         )
-
+        
     
+    },
+    getUserOrder(context) {
+        return this.$axios.get('https://fakestoreapi.com/carts/user/2').then(res => {
+            return res.data
+        },
+        data => {
+            return data
+        }
+        )
     }
 }

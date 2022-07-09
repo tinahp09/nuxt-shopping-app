@@ -124,10 +124,14 @@
 
 <script>
 export default {
-  async asyncData(context) {
-    const data = await context.store.dispatch('products/getAllCarts')
-    console.log(data)
-    return { content: data }
+  asyncData(context) {
+    const cartInfo = context.$cookies.get('cartInfo')
+    
+    console.log('cartInfo', cartInfo);
+
+    
+
+    // return { content: getUserCart }
   },
 }
 </script>

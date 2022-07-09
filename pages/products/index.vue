@@ -55,7 +55,9 @@
                               <NuxtLink :to="`/products/${item.id}`"
                                 >More |
                               </NuxtLink>
-                              <a @click.prevent="addProduct(item.id)">Add to cart</a>
+                              <a @click.prevent="addProduct(item.id)"
+                                >Add to cart</a
+                              >
                             </div>
                           </div>
                         </div>
@@ -94,33 +96,28 @@ export default {
     const cart = await context.store.dispatch('products/getAllCarts')
     // console.log(data)
 
-    return { content: data , carts:cart }
+    return { content: data, carts: cart }
   },
   data() {
-    return {}
+    return {
+      cartArray: [],
+    }
   },
   computed: {
     // ...mapState([ 'productsList' ]),
   },
   methods: {
-     async addProduct(productId) {
+    async addProduct(productId) {
+      const cartInfo = this.$cookies.get('cartInfo')
+      console.log(cartInfo)
       const data = {
         productid: productId,
-        quantity: 1
+        quantity: 1,
       }
-      // localStorage.setItem('test', 'we want to test api')
-      // const testKey = localStorage.getItem('test')
-      // console.log(testKey)
-      const cartInfo = this.$cookies.get('cartInfo')
-      console.log('cart info')
-      console.log(cartInfo)
-      const updateCartInfo = cartInfo.push(data)
-      console.log(updateCartInfo)
-      this.$cookies.set('newInfo', JSON.stringify(updateCartInfo))
-      const newInfo = this.$cookies.get('newInfo')
-      console.log('new info')
-      console.log(newInfo)
-      await this.$store.dispatch('products/addToCart', updateCartInfo)
+      cartInfo.push(data)
+      this.$cookies.set('cartInfo', cartInfo)
+      await this.$store.dispatch('products/addToCart', cartInfo)
+      this.$swal('added to cart')
     },
   },
 }

@@ -114,6 +114,8 @@ export default {
     const trendingItems = await context.store.dispatch(
       'products/getAllProducts'
     )
+    const getUserCart = context.store.dispatch('products/getAllCarts')
+    console.log(getUserCart)
     // console.log(data)
     return { content: data, trending: trendingItems }
   },
