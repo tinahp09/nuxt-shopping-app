@@ -127,11 +127,7 @@ export default {
   asyncData(context) {
     const cartInfo = context.$cookies.get('cartInfo')
     
-    console.log('cartInfo', cartInfo);
-
-    
-
-    // return { content: getUserCart }
+    console.log('cartInfo', cartInfo)
   },
 }
 </script>
