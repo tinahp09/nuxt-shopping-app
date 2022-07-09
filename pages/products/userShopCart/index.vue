@@ -19,17 +19,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr v-for="item in content" :key="item.id">
                 <td class="image" data-title="No">
-                  <img src="https://via.placeholder.com/100x100" alt="#" />
+                  <img :src="`${item.image}`" alt="#" />
                 </td>
                 <td class="product-des" data-title="Description">
-                  <p class="product-name"><a href="#">Women Dress</a></p>
+                  <p class="product-name"><a href="#">{{item.category}}</a></p>
                   <p class="product-des">
-                    Maboriosam in a tonto nesciung eget distingy magndapibus.
+                    {{item.title}}
                   </p>
                 </td>
-                <td class="price" data-title="Price"><span>$110.00 </span></td>
+                <td class="price" data-title="Price"><span>{{item.price}}$ </span></td>
                 <td class="qty" data-title="Qty">
                   <!-- Input Order -->
                   <div class="input-group">
@@ -37,14 +37,13 @@
                       <button
                         type="button"
                         class="btn btn-primary btn-number"
-                        disabled="disabled"
-                        data-type="minus"
-                        data-field="quant[1]"
+                        @click="item.quantity--"
                       >
-                        <i class="ti-minus"></i>
+                        <i class="fa fa-minus"></i>
                       </button>
                     </div>
                     <input
+                    v-model="item.quantity"
                       type="text"
                       name="quant[1]"
                       class="input-number"
@@ -56,17 +55,16 @@
                       <button
                         type="button"
                         class="btn btn-primary btn-number"
-                        data-type="plus"
-                        data-field="quant[1]"
+                        @click="item.quantity++"
                       >
-                        <i class="ti-plus"></i>
+                        <i class="fa fa-plus"></i>
                       </button>
                     </div>
                   </div>
                   <!--/ End Input Order -->
                 </td>
                 <td class="total-amount" data-title="Total">
-                  <span>$220.88</span>
+                  <span>{{(item.quantity * item.price).toFixed(2)}}$</span>
                 </td>
                 <td class="action" data-title="Remove">
                   <a href="#"><i class="ti-trash remove-icon"></i></a>
@@ -126,8 +124,9 @@
 export default {
   asyncData(context) {
     const cartInfo = context.$cookies.get('cartInfo')
-    
     console.log('cartInfo', cartInfo)
+    return{content: cartInfo}
   },
+  
 }
 </script>

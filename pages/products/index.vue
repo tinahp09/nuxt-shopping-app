@@ -55,7 +55,7 @@
                               <NuxtLink :to="`/products/${item.id}`"
                                 >More |
                               </NuxtLink>
-                              <a @click.prevent="addProduct(item.id)"
+                              <a @click.prevent="addProduct(item)"
                                 >Add to cart</a
                               >
                             </div>
@@ -93,10 +93,9 @@ export default {
   layout: 'Dashboard',
   async asyncData(context) {
     const data = await context.store.dispatch('products/getAllProducts')
-    const cart = await context.store.dispatch('products/getAllCarts')
     // console.log(data)
 
-    return { content: data, carts: cart }
+    return { content: data }
   },
   data() {
     return {
@@ -107,14 +106,30 @@ export default {
     // ...mapState([ 'productsList' ]),
   },
   methods: {
-    async addProduct(productId) {
-      const cartInfo = this.$cookies.get('cartInfo')
+    async addProduct(product) {
+      const cartInfo = (await this.$cookies.get('cartInfo')) ?? []
+      console.log('product: ', product)
       console.log(cartInfo)
-      const data = {
-        productid: productId,
-        quantity: 1,
+      const findIndexOfItem = await cartInfo.findIndex(
+        (item) => item.productId === product.id
+      )
+      console.log('find index: ', findIndexOfItem)
+
+      if (findIndexOfItem >= 0) {
+        cartInfo[findIndexOfItem].quantity =
+          cartInfo[findIndexOfItem].quantity + 1
+      } else {
+        const data = {
+          productId: product.id,
+          quantity: 1,
+          image: product.image,
+          price: product.price,
+          title: product.title,
+          category: product.category
+        }
+        cartInfo.push(data)
       }
-      cartInfo.push(data)
+
       this.$cookies.set('cartInfo', cartInfo)
       await this.$store.dispatch('products/addToCart', cartInfo)
       this.$swal('added to cart')

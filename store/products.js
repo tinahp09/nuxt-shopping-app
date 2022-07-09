@@ -34,6 +34,7 @@ export const actions = {
         console.log('Hi')
         console.log(payload.id)
         return this.$axios.get(`products/${payload.id}`).then(res => {
+            console.log(res)
             return res.data
         },
             data => {
